@@ -1,0 +1,13 @@
+name: Book
+main: com.cocoapebbles.book.Main
+version: 1.0
+api-version: 1.13
+commands:
+   book:
+      description: Allows you to create or import books
+      usage: "Type '/book help' to see available commands"
+      permission: book
+permissions:
+  book:
+    description: Allows book command(s)
+    default: true
