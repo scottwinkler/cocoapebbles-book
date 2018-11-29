@@ -1,6 +1,8 @@
 # Cocoapebble's Book Mod
 This spigot mod makes it easy to write a library worth of books in Minecraft. If you have ever tried to use the in game book editor you will know how much of a struggle it is to write anything more than a few pages. This mod starts up a web app and REST api on your minecraft server to allow you to easily edit books of any length. Book configurations are stored in json on the server and can be created in Minecraft by using a simple command.
 
+![alt text](https://raw.githubusercontent.com/scottwinkler/cocoapebbles-book/master/cool-pic.png)
+
 ## Setup
 To build the plugin jar file
 
@@ -29,5 +31,3 @@ Once you are satisfied with your masterpiece, you can log into minecraft and cre
 
 ### Permissions
 The only permission for this plugin is "book" which is default set to true because I am lazy and didn't want to come up with anything more comprehensive than that. Anyways I doubt any young kids are going to care enough to abuse a plugin like this anyways.
-
-![alt text](https://raw.githubusercontent.com/swinkler/cocoapebbles-book/master/cool-pic.png)
