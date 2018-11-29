@@ -30,4 +30,4 @@ Once you are satisfied with your masterpiece, you can log into minecraft and cre
 ### Permissions
 The only permission for this plugin is "book" which is default set to true because I am lazy and didn't want to come up with anything more comprehensive than that. Anyways I doubt any young kids are going to care enough to abuse a plugin like this anyways.
 
-![alt text](https://raw.githubusercontent.com/swinkler/cocoapebbles-book/master/path/to/img.png)
+![alt text](https://raw.githubusercontent.com/swinkler/cocoapebbles-book/master/cool-pic.png)
