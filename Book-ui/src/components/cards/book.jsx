@@ -148,7 +148,7 @@ class Book extends Component {
         } else {
             return (
                 <div className={classes.flexContainer}>
-                    <div className={classNames(classes.title)}>{this.state.title}</div>
+                    <div className={classNames(classes.title)}>{'"'+this.state.title+'", id: '+this.props.book.id}</div>
                     <div className={classes.flex} />
                     <div className={classNames(classes.author)}>{"written by " + this.state.author}</div>
                 </div>

@@ -1,6 +1,6 @@
 name: Book
 main: com.cocoapebbles.book.Main
-version: 1.0
+version: 1.1
 api-version: 1.13
 commands:
    book:

@@ -4,7 +4,6 @@ import {
     API_URL,
 } from '../constants/actions.js';
 
-
 //books
 export function refreshBooks() {
     return (dispatch) => {
@@ -34,7 +33,7 @@ export function updateBook({book}){
 
 export function createBook({ book }) {
     return (dispatch) => {
-        const endpoint = `${API_URL}/books`;
+        const endpoint = `${API_URL}/books/`;
         fetch(endpoint,{
                 method: 'POST',
                 body: JSON.stringify(book),
@@ -53,7 +52,7 @@ export function createBook({ book }) {
 export function deleteBook({ book }) {
     //console.log(JSON.stringify(book));
     return (dispatch) => {
-        const endpoint = `${API_URL}/books`;
+        const endpoint = `${API_URL}/books/`;
         fetch(endpoint,{
                 method: 'DELETE',
                 body: JSON.stringify(book),
@@ -71,7 +70,7 @@ export function deleteBook({ book }) {
 
 function listBooks() {
     return (dispatch) => {
-        const endpoint = `${API_URL}/books`;
+        const endpoint = `${API_URL}/books/`;
         fetch(endpoint, { method: 'GET', })
             .then(res => {
                 res.json().then((json) => {

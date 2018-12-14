@@ -37,9 +37,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.cocoapebbles.book</groupId>
-  <artifactId>cocoapebbles-book</artifactId>
+  <artifactId>cocoapebbles-books</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>book-plugin</name>
   <url>http://maven.apache.org</url>
     <properties>

@@ -34,7 +34,7 @@ class Home extends Component {
     }
 
     createEmptyBook = () => {
-        let newBook = {author:"",pages:[],title:""}
+        let newBook = {author:"Unknown",pages:[],title:"Untitled",id:"N/A"}
         this.setState({newBook:newBook});
     }
 

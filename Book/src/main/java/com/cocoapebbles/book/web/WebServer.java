@@ -50,15 +50,10 @@ public class WebServer {
         logger.info("Initializing server");
         try {
             File dataDir = p.getDataFolder();
-            String ip = p.getServer().getIp();
-            if ((ip == null) || (ip.trim().length() == 0)) {
-                ip = "http://localhost";
-            }
-            if(!(ip.startsWith("http://")||ip.startsWith("https://"))){
-                ip="http://"+ip;
-            }
             server = new Server(port);
             server.setStopAtShutdown(true);
+
+            //file servlet
             ResourceHandler resource_handler = new ResourceHandler();
             resource_handler.setDirectoriesListed(true);
             resource_handler.setWelcomeFiles(new String[]{"index.html"});
@@ -68,6 +63,7 @@ public class WebServer {
             filesContext.setContextPath("/");
             filesContext.setHandler(resource_handler);
 
+            //jersey servlet
             ResourceConfig resourceConfig = new ResourceConfig(BooksResource.class);
             BookDAO bookDAO = new BookDAO(p);
             Logger logger = p.getLogger();
@@ -83,9 +79,9 @@ public class WebServer {
             ServletContextHandler jerseyContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
             jerseyContext.setContextPath("/books");
             jerseyContext.addServlet(holder,"/*");
+
             ContextHandlerCollection contexts = new ContextHandlerCollection();
             contexts.setHandlers(new Handler[]{filesContext,jerseyContext});
-            //contexts.setHandlers(new Handler[]{jerseyContext});
             server.setHandler(contexts);
             server.start();
             logger.info("Server running on port: " + port + "!");
