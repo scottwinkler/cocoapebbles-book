@@ -1,15 +1,13 @@
 package com.cocoapebbles.book;
 
 import com.cocoapebbles.book.commands.CommandHandler;
-import com.cocoapebbles.book.web.FileServer;
-import com.cocoapebbles.book.web.JerseyApp;
+import com.cocoapebbles.book.web.WebServer;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.io.*;
-import java.net.URL;
 import java.util.Enumeration;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
@@ -17,8 +15,7 @@ import java.util.zip.ZipFile;
 
 public class Main extends JavaPlugin implements Listener{
     private Logger logger;
-    private FileServer fileServer;
-    private JerseyApp restServer;
+    private WebServer webServer;
 
     public Main(){
         logger = this.getLogger();
@@ -31,8 +28,7 @@ public class Main extends JavaPlugin implements Listener{
     }
     @Override
     public void onDisable(){
-        fileServer.shutDownServer();
-        restServer.shutDownServer();
+        webServer.shutDownServer();
     }
 
     public void registerCommands(){
@@ -47,8 +43,7 @@ public class Main extends JavaPlugin implements Listener{
     public void initializeWebApp(){
         loadConfig();
         getStaticFiles();
-        fileServer = new FileServer(this);
-        restServer = new JerseyApp(this);
+        webServer = new WebServer(this);
     }
 
     private void getStaticFiles() {
@@ -99,7 +94,7 @@ public class Main extends JavaPlugin implements Listener{
                         String s = FileUtils.readFileToString(f,"UTF-8");
                         String ip = this.getServer().getIp();
                         if ((ip == null) || (ip.trim().length() == 0)) {
-                            ip = "http://0.0.0.0";
+                            ip = "http://localhost";
                         }
                         if(!(ip.startsWith("http://")||ip.startsWith("https://"))){
                             logger.info("Padding ip with 'http://' to prevent internal error");
@@ -135,10 +130,8 @@ public class Main extends JavaPlugin implements Listener{
 
     private void loadConfig(){
         FileConfiguration config = this.getConfig();
-        config.addDefault("api.port",9000);
-        config.addDefault("api.enable",true);
-        config.addDefault("webapp.port",8080);
-        config.addDefault("webapp.enable",true);
+        config.addDefault("server.port",8080);
+        config.addDefault("server.enable",true);
         config.options().copyDefaults(true);
         this.saveConfig();
     }

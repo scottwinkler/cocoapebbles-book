@@ -10,7 +10,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 
-@Path("/books")
+@Path("/")
 public class BooksResource {
 
     @Inject
