@@ -64,6 +64,7 @@ public class Main extends JavaPlugin implements Listener{
                     logger.info("Skipping static files unpacking");
                     return;
                 }
+                FileUtils.forceDelete(versionFile);
             }catch(IOException e){
                 logger.severe(e.getMessage());
             }
@@ -73,7 +74,6 @@ public class Main extends JavaPlugin implements Listener{
             //clear directory of old static files and bump version
             File webDir = new File(df+"/web");
             FileUtils.cleanDirectory(webDir);
-            FileUtils.forceDelete(versionFile);
             FileUtils.write(versionFile,pluginVersion,"UTF-8");
         }catch(IOException e){
             logger.severe(e.getMessage());
